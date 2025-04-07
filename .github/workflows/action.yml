@@ -7,8 +7,6 @@ jobs:
     container:
       image: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
     steps:
-      - name: Check for dockerenv file
-        run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
       - name: Check out repository code
         uses: actions/checkout@v4
       - name: Build
@@ -19,5 +17,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: libStandaloneFileBrowser.so
-          path: Plugins/Linux/StandaloneFileBrowser/build/
+          path: Plugins/Linux/StandaloneFileBrowser/build/libStandaloneFileBrowser.so
 
