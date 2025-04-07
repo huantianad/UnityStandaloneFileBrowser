@@ -1,7 +1,6 @@
 name: Action
 on:
   push:
-    branches: [ main ]
 jobs:
   container-test-job:
     runs-on: ubuntu-latest
@@ -10,4 +9,4 @@ jobs:
     steps:
       - name: Check for dockerenv file
         run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
-    
+
