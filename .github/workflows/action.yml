@@ -9,4 +9,15 @@ jobs:
     steps:
       - name: Check for dockerenv file
         run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Build
+        run: |
+          cd Plugins/Linux/StandaloneFileBrowser
+          make all
+      - name: Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: libStandaloneFileBrowser.so
+          path: Plugins/Linux/StandaloneFileBrowser/build/
 
